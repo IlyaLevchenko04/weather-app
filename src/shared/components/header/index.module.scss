@@ -1,0 +1,45 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  transition: all 0.3s linear;
+
+  &:hover {
+    fill: tomato;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  font-size: large;
+  font-weight: 700;
+}
+
+.navLink {
+  position: relative;
+  padding: 4px 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: tomato;
+    transition: width 0.3s linear;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+  }
+}
