@@ -2,7 +2,7 @@ import { Container } from '@shared/ui/container';
 import { Section } from '@shared/ui/section';
 
 export const Home = () => (
-  <div>
+  <>
     <Section>
       <Container>Section 1</Container>
     </Section>
@@ -18,5 +18,5 @@ export const Home = () => (
     <Section>
       <Container>Section 5</Container>
     </Section>
-  </div>
+  </>
 );

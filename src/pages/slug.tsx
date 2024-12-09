@@ -5,7 +5,7 @@ import { useParams } from 'react-router';
 export const CityPage = () => {
   const { slug } = useParams();
   return (
-    <div>
+    <>
       <Section>
         <Container>{slug}</Container>
       </Section>
@@ -21,6 +21,6 @@ export const CityPage = () => {
       <Section>
         <Container>Section 5</Container>
       </Section>
-    </div>
+    </>
   );
 };
