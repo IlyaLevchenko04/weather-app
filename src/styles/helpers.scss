@@ -1,0 +1,3 @@
+@function get-min-width($width) {
+  @return '(min-width:' + #{$width}')';
+}

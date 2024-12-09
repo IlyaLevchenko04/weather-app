@@ -1,0 +1,14 @@
+@use 'sass:math';
+@use 'sass:map';
+
+@use '@styles/media' as *;
+@use '@styles/helpers' as *;
+
+@mixin media($device: 'tablet') {
+  $size: map.get($breakpoints, $device);
+  $media: get-min-width($size);
+
+  @media #{$media} {
+    @content;
+  }
+}

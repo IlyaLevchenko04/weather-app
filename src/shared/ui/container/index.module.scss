@@ -1,0 +1,26 @@
+.root {
+  padding-right: $edgeMobile;
+  padding-left: $edgeMobile;
+
+  width: 100%;
+
+  @include media('tablet') {
+    width: $containerTabletWidth;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  @include media('tabletVertical') {
+    width: $containerTabletVerticalWidth;
+  }
+
+  @include media('laptop') {
+    width: $containerLaptopWidth;
+  }
+
+  @include media('desktop') {
+    width: $containerDesktopWidth;
+  }
+}

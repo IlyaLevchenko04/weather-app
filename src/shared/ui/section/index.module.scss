@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  padding: 36px 0;
+
+  @include media('tablet') {
+    padding: $s-6xl 0;
+  }
+}

@@ -1,0 +1,31 @@
+$s-3xs: 4px;
+$s-2xs: 8;
+$s-xs: 16px;
+$s-s: 24px;
+$s-m: 32px;
+$s-l: 40px;
+$s-xl: 48px;
+$s-2xl: 56px;
+$s-3xl: 60px;
+$s-4xl: 72px;
+$s-5xl: 88px;
+$s-6xl: 100px;
+$s-7xl: 140px;
+$s-8xl: 200px;
+
+:export {
+  spacing3XS: $s-3xs;
+  spacing2XS: $s-2xs;
+  spacingXS: $s-xs;
+  spacingS: $s-s;
+  spacingM: $s-m;
+  spacingL: $s-l;
+  spacingXL: $s-xl;
+  spacing2XL: $s-2xl;
+  spacing3XL: $s-3xl;
+  spacing4XL: $s-4xl;
+  spacing5XL: $s-5xl;
+  spacing6XL: $s-6xl;
+  spacing7XL: $s-7xl;
+  spacing8XL: $s-8xl;
+}

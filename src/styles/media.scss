@@ -1,0 +1,31 @@
+$breakpointsPhoneM: 375px;
+$breakpointsTablet: 768px;
+$breakpointsTabletVertical: 1024px;
+$breakpointsLaptop: 1280px;
+$breakpointsDesktop: 1440px;
+
+$breakpoints: (
+  'phoneM': $breakpointsPhoneM,
+  'tablet': $breakpointsTablet,
+  'tabletVertical': $breakpointsTabletVertical,
+  'laptop': $breakpointsLaptop,
+  'desktop': $breakpointsDesktop,
+);
+
+$edgeMobile: 16px;
+$edgeLg: 30px;
+$edge: 60px;
+
+// Container
+$containerTabletWidth: 690px;
+$containerTabletVerticalWidth: 900px;
+$containerLaptopWidth: 1040px;
+$containerDesktopWidth: 1040px;
+
+:export {
+  desktop: $breakpointsDesktop;
+  laptop: $breakpointsLaptop;
+  phoneM: $breakpointsPhoneM;
+  tablet: $breakpointsTablet;
+  tabletVertical: $breakpointsTabletVertical;
+}
