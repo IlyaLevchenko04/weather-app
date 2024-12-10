@@ -9,7 +9,7 @@ interface MainWeather {
   humidity: number;
 }
 
-interface ForecastItem {
+export interface ForecastItem {
   dt_txt: string;
   main: MainWeather;
   weather: Weather[];
