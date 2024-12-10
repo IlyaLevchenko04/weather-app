@@ -13,6 +13,8 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/shared/assets'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@sections': path.resolve(__dirname, './src/sections'),
+      '@redux': path.resolve(__dirname, './src/redux'),
+      '@hooks': path.resolve(__dirname, './src/shared/hooks'),
     },
   },
   css: {

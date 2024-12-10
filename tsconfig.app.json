@@ -12,7 +12,9 @@
       "@styles/*": ["src/styles/*"],
       "@assets/*": ["src/shared/assets/*"],
       "@pages/*": ["src/pages/*"],
-      "@sections/*": ["src/sections/*"]
+      "@sections/*": ["src/sections/*"],
+      "@redux/*": ["src/redux/*"],
+      "@hooks/*": ["src/shared/hooks/*"]
     },
     "types": ["vite/client", "vite-plugin-svgr/client"],
 
