@@ -2,6 +2,12 @@
 @forward '@styles/mixins';
 @forward '@styles/helpers';
 @forward '@styles/variables';
+@forward '@styles/colors';
+
+body {
+  margin: 0;
+  padding: 0;
+}
 
 h1,
 h2,
