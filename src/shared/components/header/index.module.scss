@@ -1,8 +1,24 @@
 .root {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: $colorWhite;
+  border-bottom: 2px solid $colorLight04;
+}
+
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
+  padding-top: $s-xs;
+  padding-bottom: $s-xs;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $s-xs;
 }
 
 .logo {
@@ -11,15 +27,36 @@
   transition: all 0.3s linear;
 
   &:hover {
-    fill: tomato;
+    fill: $colorBrand;
   }
 }
 
 .link {
   text-decoration: none;
-  color: black;
+  color: $colorDark01;
   font-size: large;
   font-weight: 700;
+}
+
+.navIcon {
+  fill: $colorDark01;
+  transition: all 0.3s linear;
+
+  &:hover {
+    fill: $colorBrand;
+  }
+}
+
+.logoLink {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.3s linear;
+
+  &:hover {
+    color: $colorBrand;
+  }
 }
 
 .navLink {
@@ -33,7 +70,7 @@
     left: 0;
     width: 0;
     height: 4px;
-    background-color: tomato;
+    background-color: $colorBrand;
     transition: width 0.3s linear;
   }
 
