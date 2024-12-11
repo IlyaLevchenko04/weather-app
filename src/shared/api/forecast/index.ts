@@ -1,4 +1,8 @@
-import { WeatherApiResponse, WeatherResponse } from '@shared/types/forecast';
+import {
+  WeatherApiResponse,
+  WeatherData,
+  WeatherResponse,
+} from '@shared/types/forecast';
 
 class _Forecast {
   private apiLink: string;
@@ -10,7 +14,9 @@ class _Forecast {
 
   public async getFiveDayForecast(city: string): Promise<WeatherResponse> {
     const url = new URL(
-      `${this.apiLink}/forecast?q=${city}&appid=${this.apiKey}&units=metric`
+      `${this.apiLink}/forecast?q=${encodeURIComponent(city)}&appid=${
+        this.apiKey
+      }&units=metric`
     );
     const data = this.fetchData(url) as unknown as WeatherResponse;
 
@@ -20,13 +26,26 @@ class _Forecast {
   public async getAllFavoritesShortForecast(
     favorites: string[]
   ): Promise<WeatherApiResponse> {
+    const safeFavorites = favorites.map(item => encodeURIComponent(item));
+
     const url = new URL(
-      `${this.apiLink}/group?id=${favorites.join(',')}&appid=${
+      `${this.apiLink}/group?id=${safeFavorites.join(',')}&appid=${
         this.apiKey
       }&units=metric`
     );
     const data = this.fetchData(url) as unknown as WeatherApiResponse;
 
+    return data;
+  }
+
+  public async getWeatherForOneCity(city: string): Promise<WeatherData> {
+    const url = new URL(
+      `${this.apiLink}/weather?q=${encodeURIComponent(city)}&appid=${
+        this.apiKey
+      }&units=metric`
+    );
+
+    const data = (await this.fetchData(url)) as WeatherData;
     return data;
   }
 

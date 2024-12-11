@@ -23,7 +23,7 @@ export const Hero = () => {
 
   const onInput: React.FormEventHandler<HTMLInputElement> = e => {
     const value = (e.target as HTMLInputElement).value;
-    setCityInput(value.trim());
+    setCityInput(value);
   };
 
   const handleCloseToast = () => setOpenToast(false);
@@ -32,7 +32,7 @@ export const Hero = () => {
     e.preventDefault();
 
     setOpenToast(true);
-    getForecast(cityInput);
+    getForecast(cityInput.trim());
     setCityInput('');
   };
 
