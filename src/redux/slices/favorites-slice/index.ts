@@ -1,11 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchMultipleCities } from './thunks/favorites';
+import { WeatherData } from '@shared/types/forecast';
 
 export interface FavoritesState {
-  data: string[];
+  favorites: string[];
+  data: WeatherData[];
+  isLoading: boolean;
+  error: string;
 }
 
 const initialState: FavoritesState = {
   data: [],
+  favorites: [],
+  isLoading: false,
+  error: '',
 };
 
 export const favoritesSlice = createSlice({
@@ -13,12 +21,29 @@ export const favoritesSlice = createSlice({
   initialState,
   reducers: {
     addFavorite: (state, action) => {
-      state.data = [...state.data, action.payload];
+      if (state.favorites.includes(action.payload)) return;
+
+      state.favorites = [...state.favorites, action.payload];
     },
     deleteFavorite: (state, action) => {
-      state.data = state.data.filter(item => item === action.payload);
+      state.favorites = state.favorites.filter(item => item === action.payload);
     },
   },
+  extraReducers: builder =>
+    builder
+      .addCase(fetchMultipleCities.fulfilled, (state, action) => {
+        state.data = [...action.payload];
+
+        state.isLoading = !state.isLoading;
+      })
+      .addCase(fetchMultipleCities.pending, state => {
+        state.isLoading = !state.isLoading;
+      })
+      .addCase(fetchMultipleCities.rejected, (state, action) => {
+        state.error = action.payload as string;
+
+        state.isLoading = !state.isLoading;
+      }),
 });
 
 export const { addFavorite, deleteFavorite } = favoritesSlice.actions;
