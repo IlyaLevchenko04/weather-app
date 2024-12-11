@@ -9,3 +9,12 @@ export const fetchMultipleCities = createAsyncThunk(
     return response.list;
   }
 );
+
+export const fetchOneCityByName = createAsyncThunk(
+  'users/fetchOneCity',
+  async (city: string) => {
+    const response = await Forecast.getWeatherForOneCity(city);
+
+    return response;
+  }
+);
