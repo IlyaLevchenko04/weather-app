@@ -4,20 +4,20 @@ import { Container } from '@shared/ui/container';
 import { Section } from '@shared/ui/section';
 
 import s from './index.module.scss';
-import { useAppDispatch } from '@shared/hooks/redux';
-import { useCallback, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
+import { useCallback, useEffect, useState } from 'react';
 import { fetchFiveDayForecast } from '@redux/slices/weather-slice/thunks/forecast';
-import { addFavorite, deleteFavorite } from '@redux/slices/favorites-slice';
+import { addFavorite } from '@redux/slices/favorites-slice';
 
 export const Hero = () => {
   const dispatch = useAppDispatch();
+  const cityData = useAppSelector(state => state.forecast.data?.city);
+
   const getForecast = useCallback(
     (city: string) => dispatch(fetchFiveDayForecast(city)),
     [dispatch]
   );
 
-  const setFavorites = (city: string, toDelete = false) =>
-    dispatch(toDelete ? deleteFavorite(city) : addFavorite(city));
   const [cityInput, setCityInput] = useState('');
   const [openToast, setOpenToast] = useState(false);
 
@@ -33,9 +33,14 @@ export const Hero = () => {
 
     setOpenToast(true);
     getForecast(cityInput);
-    setFavorites(cityInput);
     setCityInput('');
   };
+
+  useEffect(() => {
+    if (cityData) {
+      dispatch(addFavorite(cityData.id));
+    }
+  }, [cityData, dispatch]);
 
   return (
     <Section className={s.root}>

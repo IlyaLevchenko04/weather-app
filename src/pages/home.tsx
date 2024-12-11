@@ -1,13 +1,11 @@
-// import { fetchFiveDayForecast } from '@redux/slices/weather-slice/thunks/forecast';
-
-// import { useAppDispatch, useAppSelector } from '@shared/hooks/redux';
 import { Hero } from '@sections/home/hero';
-// import { useCallback, useState } from 'react';
+import { HomepageList } from '@sections/home/list';
 
 export const Home = () => {
   return (
     <>
       <Hero />
+      <HomepageList />
     </>
   );
 };
