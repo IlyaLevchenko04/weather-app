@@ -11,7 +11,8 @@ export interface FavoritesState {
 
 const initialState: FavoritesState = {
   data: [],
-  favorites: [],
+  favorites:
+    JSON.parse(window.localStorage.getItem('favorites') as string) || [],
   isLoading: false,
   error: '',
 };
@@ -22,17 +23,24 @@ export const favoritesSlice = createSlice({
   reducers: {
     addFavorite: (state, action) => {
       if (state.favorites.includes(action.payload)) return;
+      const newFavorites = [...state.favorites, action.payload];
 
-      state.favorites = [...state.favorites, action.payload];
+      window.localStorage.setItem('favorites', JSON.stringify(newFavorites));
+
+      state.favorites = newFavorites;
     },
     deleteFavorite: (state, action) => {
+      const newFavorites = state.favorites.filter(
+        item => item.toString() !== action.payload.toString()
+      );
+
+      window.localStorage.setItem('favorites', JSON.stringify(newFavorites));
+
       state.data = state.data.filter(
         item => item.id.toString() !== action.payload.toString()
       );
 
-      state.favorites = state.favorites.filter(
-        item => item.toString() !== action.payload.toString()
-      );
+      state.favorites = newFavorites;
 
       return state;
     },
