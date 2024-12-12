@@ -36,7 +36,7 @@ export const WeatherCard: React.FC<IProps> = props => {
 
   return (
     <article id={`${props.id}`} className={s.wrapper}>
-      <Link to={`/${props.id}`} className={s.root}>
+      <Link to={`/${encodeURIComponent(props.cityName)}`} className={s.root}>
         <button className={s.closeButton} onClick={onCloseClick}>
           <Close />
         </button>

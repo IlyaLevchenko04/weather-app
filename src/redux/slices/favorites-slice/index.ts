@@ -26,11 +26,15 @@ export const favoritesSlice = createSlice({
       state.favorites = [...state.favorites, action.payload];
     },
     deleteFavorite: (state, action) => {
+      state.data = state.data.filter(
+        item => item.id.toString() !== action.payload.toString()
+      );
+
       state.favorites = state.favorites.filter(
         item => item.toString() !== action.payload.toString()
       );
 
-      state.data = state.data.filter(item => item.id !== action.payload.id);
+      return state;
     },
   },
   extraReducers: builder =>

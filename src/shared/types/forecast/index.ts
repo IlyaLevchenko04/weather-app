@@ -7,12 +7,18 @@ interface MainWeather {
   temp: number;
   pressure: number;
   humidity: number;
+  feels_like: number;
 }
 
 export interface ForecastItem {
   dt_txt?: string;
   main: MainWeather;
   weather: Weather[];
+  wind: {
+    speed: number;
+    deg: number;
+    gust: number;
+  };
 }
 
 interface City {
@@ -33,6 +39,7 @@ export interface WeatherData {
     temp: number;
     pressure: number;
     humidity: number;
+    feels_like: number;
   };
   weather: Array<{
     description: string;
