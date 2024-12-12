@@ -65,8 +65,10 @@ export const FullInfo = () => {
       value: `${currentWeather.main.pressure} hPa`,
     },
     {
-      title: `Wind (${getWindDirection(currentWeather.wind.deg)})`,
-      value: `${currentWeather.wind.speed} m/s`,
+      title: `Wind (${
+        currentWeather.wind && getWindDirection(currentWeather.wind.deg)
+      })`,
+      value: `${currentWeather.wind && currentWeather.wind.speed} m/s`,
     },
   ];
 

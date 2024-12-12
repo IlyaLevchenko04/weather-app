@@ -14,7 +14,7 @@ export interface ForecastItem {
   dt_txt?: string;
   main: MainWeather;
   weather: Weather[];
-  wind: {
+  wind?: {
     speed: number;
     deg: number;
     gust: number;
