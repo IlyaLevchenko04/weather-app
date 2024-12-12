@@ -5,6 +5,7 @@ export const fetchFiveDayForecast = createAsyncThunk(
   'users/fetchFiveDayForecast',
   async (city: string) => {
     const response = await Forecast.getFiveDayForecast(city);
+    console.log(response);
     return response;
   }
 );

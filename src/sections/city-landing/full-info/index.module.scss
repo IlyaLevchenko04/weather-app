@@ -1,0 +1,105 @@
+.title {
+  font-size: 44px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 800;
+
+  text-decoration: underline;
+}
+
+.headerWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $s-xs;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: $s-m;
+}
+
+.temperature {
+  font-size: 44px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 32px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 400;
+}
+
+.infoList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.additionalInfo {
+  font-size: 44px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: $s-s;
+  margin-top: $s-m;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: $s-2xs;
+  align-items: center;
+  width: fit-content;
+}
+
+.infoItemTitle {
+  font-size: 32px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 500;
+}
+
+.infoItemValue {
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 500;
+}
+
+.fullWeatherList {
+  display: flex;
+  gap: $s-xs;
+  flex-wrap: wrap;
+}
+
+.fullWeatherListItem {
+  display: flex;
+  flex-direction: column;
+  gap: $s-2xs;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $colorLight04;
+  padding: $s-xs;
+}
+
+.fullWeatherListItemTemp {
+  font-size: $s-s;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.fullWeatherListItemDescription {
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.date {
+  font-size: $s-s;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.section {
+  overflow: hidden;
+}
