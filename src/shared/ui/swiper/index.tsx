@@ -5,7 +5,7 @@ import s from './index.module.scss';
 
 interface IProps<T> {
   spaceBetween?: number;
-  slidesPerView?: number;
+  slidesPerView?: number | 'auto';
   list: T[];
   slide: (item: T, index: number) => JSX.Element;
 }
@@ -16,12 +16,12 @@ export const CustomSwiper: React.FC<IProps<any>> = props => {
     <Swiper
       spaceBetween={props.spaceBetween || 16}
       slidesPerView={props.slidesPerView || 8}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={swiper => console.log(swiper)}
       className={s.root}
     >
       {props.list.map((item, idx) => (
-        <SwiperSlide>{props.slide(item, idx)}</SwiperSlide>
+        <SwiperSlide key={self.crypto.randomUUID()}>
+          {props.slide(item, idx)}
+        </SwiperSlide>
       ))}
     </Swiper>
   );

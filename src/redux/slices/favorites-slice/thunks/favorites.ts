@@ -2,19 +2,41 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { Forecast } from '@shared/api/forecast';
 
 export const fetchMultipleCities = createAsyncThunk(
-  'users/fetchMultipleCities',
-  async (favorites: string[]) => {
-    const response = await Forecast.getAllFavoritesShortForecast(favorites);
+  'favorites/fetchMultipleCities',
+  async (favorites: string[], { rejectWithValue }) => {
+    try {
+      const response = await Forecast.getAllFavoritesShortForecast(favorites);
+      if (typeof response === 'string') {
+        const err = new Error('You have some problems with city name?');
 
-    return response.list;
+        throw err;
+      }
+
+      return response.list;
+    } catch (err) {
+      console.error(err);
+      return rejectWithValue('You have some problems with city name?');
+    }
   }
 );
 
 export const fetchOneCityByName = createAsyncThunk(
-  'users/fetchOneCity',
-  async (city: string) => {
-    const response = await Forecast.getWeatherForOneCity(city);
+  'favorites/fetchOneCity',
+  async (city: string, { rejectWithValue }) => {
+    try {
+      const response = await Forecast.getWeatherForOneCity(city);
 
-    return response;
+      if (typeof response === 'string') {
+        const err = new Error('You have some problems with city name?');
+
+        throw err;
+      }
+
+      return response;
+    } catch (err) {
+      console.error(err);
+
+      return rejectWithValue('You have some problems with city name?');
+    }
   }
 );
