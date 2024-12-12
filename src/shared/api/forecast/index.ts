@@ -12,7 +12,9 @@ class _Forecast {
     this.apiKey = `${import.meta.env.VITE_API_KEY}`;
   }
 
-  public async getFiveDayForecast(city: string): Promise<WeatherResponse> {
+  public async getFiveDayForecast(
+    city: string
+  ): Promise<WeatherResponse | unknown> {
     const url = new URL(
       `${this.apiLink}/forecast?q=${encodeURIComponent(city)}&appid=${
         this.apiKey

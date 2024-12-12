@@ -12,9 +12,11 @@ import { addFavorite } from '@redux/slices/favorites-slice';
 export const Hero = () => {
   const dispatch = useAppDispatch();
   const cityData = useAppSelector(state => state.forecast.data?.city);
+  const error = useAppSelector(state => state.forecast.error);
 
   const getForecast = useCallback(
-    (city: string) => dispatch(fetchFiveDayForecast(city)),
+    (city: string) =>
+      dispatch(fetchFiveDayForecast(city)).catch(err => console.log(err)),
     [dispatch]
   );
 
@@ -62,7 +64,7 @@ export const Hero = () => {
         <Snackbar
           open={openToast}
           onClose={handleCloseToast}
-          message="You succsesfully edited your favorites!"
+          message={error ? error : 'You succsesfully edited your favorites!'}
           autoHideDuration={4000}
         />
       </Container>

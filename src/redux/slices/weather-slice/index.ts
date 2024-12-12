@@ -22,13 +22,17 @@ export const weatherSlice = createSlice({
     builder
       .addCase(fetchFiveDayForecast.fulfilled, (state, action) => {
         state.isLoading = !state.isLoading;
-        state.data = action.payload;
+
+        state.data = action.payload as WeatherResponse;
+
+        state.error = '';
       })
       .addCase(fetchFiveDayForecast.pending, state => {
         state.isLoading = !state.isLoading;
       })
       .addCase(fetchFiveDayForecast.rejected, (state, action) => {
         state.isLoading = !state.isLoading;
+
         state.error = action.payload as unknown as string;
       });
   },

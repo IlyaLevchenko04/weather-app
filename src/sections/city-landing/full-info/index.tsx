@@ -85,7 +85,7 @@ export const FullInfo = () => {
 
         <CustomSwiper
           list={cityData.list}
-          slidesPerView={4}
+          slidesPerView={'auto'}
           spaceBetween={24}
           slide={item => (
             <li className={s.fullWeatherListItem}>
@@ -105,7 +105,7 @@ export const FullInfo = () => {
 
         <ul className={s.infoList}>
           {additionalInfo.map(item => (
-            <li className={s.infoItem}>
+            <li className={s.infoItem} key={item.title}>
               <p className={s.infoItemTitle}>{item.title}</p>
               <span className={s.infoItemValue}>{item.value}</span>
             </li>
